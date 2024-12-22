@@ -1,0 +1,3 @@
+https://adventofcode.com/2024/day/X
+
+Can you rephrase the coding question on this link to remove the references to Santa, Elves, etc. and make it less verbose and easier to read, retaining only the information necessary to solve the problem?
