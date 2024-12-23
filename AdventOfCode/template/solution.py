@@ -7,10 +7,16 @@ Config
 sys.setrecursionlimit(10 ** 6)
 test_file = 'input_a_test'
 input_file = 'input_b_full'
+DEBUG = True
 
 """
 Implementation
 """
+
+
+def log(s=''):
+    if DEBUG:
+        print(s)
 
 
 def core(data):
@@ -26,6 +32,8 @@ def part2(name):
 
 
 def process_file(name):
+    # with open(name) as file:
+    #     content = file.read()
     f = open(name)
     lines = []
     for line in f:

@@ -38,17 +38,13 @@ def core(m, n, matrix, limit_anti):
                 # calculate slope
                 d_row = a_row - b_row
                 d_col = a_col - b_col
-                # find points on either side of nodes
-                # find points going one direction
-                # find points going other direction
-                anti_a_row = a_row + d_row
-                anti_a_col = a_col + d_col
-                anti_b_row = b_row - d_row
-                anti_b_col = b_col - d_col
                 # mark anti nodes on the map, if they are not an antenna
                 if not limit_anti:
                     anti_nodes.add(nodes[i])
                     anti_nodes.add(nodes[j])
+                # find points going one direction
+                anti_a_row = a_row + d_row
+                anti_a_col = a_col + d_col
                 while 0 <= anti_a_row < m and 0 <= anti_a_col < n:
                     if matrix[anti_a_row][anti_a_col] == EMPTY:
                         matrix[anti_a_row][anti_a_col] = ANTI_NODE
@@ -57,6 +53,9 @@ def core(m, n, matrix, limit_anti):
                     anti_a_col += d_col
                     if limit_anti:
                         break
+                # find points going other direction
+                anti_b_row = b_row - d_row
+                anti_b_col = b_col - d_col
                 while 0 <= anti_b_row < m and 0 <= anti_b_col < n:
                     if matrix[anti_b_row][anti_b_col] == EMPTY:
                         matrix[anti_b_row][anti_b_col] = ANTI_NODE
